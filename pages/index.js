@@ -38,7 +38,7 @@ function App() {
   const [showAddPost, setShowAddPost] = useState(false);
 
   const onAdd = async (post) => {
-    const res = await fetch("http://localhost:3000/api/posts/", {
+    const res = await fetch("/api/posts/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -50,7 +50,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/posts")
+    fetch("/api/posts")
       .then((res) => res.json())
       .then(
         (result) => {
