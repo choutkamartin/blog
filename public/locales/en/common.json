@@ -1,0 +1,8 @@
+{
+    "h1": "A simple example",
+    "change-locale": "Čeština",
+    "to-second-page": "To secoasdand page",
+    "error-with-status": "A {{statusCode}} error sdasdoccurred on server",
+    "error-without-status": "An error occurreasdd on the server",
+    "title": "Home | next-i18next"
+}

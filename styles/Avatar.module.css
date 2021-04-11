@@ -1,0 +1,34 @@
+.avatar {
+  border-radius: 100%;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.avatar img {
+  display: inline;
+}
+
+.container {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  position: relative;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.icons {
+  display: flex;
+}
+
+.link {
+  margin-right: 1rem;
+}
+
+.link:last-child {
+  margin-right: 0;
+}

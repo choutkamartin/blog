@@ -1,65 +1,79 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { Avatar } from "../components/Avatar";
+import { About } from "../components/About";
+import { Blog } from "../components/Blog";
+import { AddPost } from "../components/AddPost";
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+import { useEffect, useState } from "react";
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+export async function getServerSideProps({ locale }) {
+  /*const res = await fetch("http://localhost:3000/api/posts", {
+  method: "GET",
+});
+const data = await res.json();*/
+  return {
+    props: {
+      /*data,*/
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "footer",
+        "button",
+        "about",
+        "blog",
+      ])),
+    }, // will be passed to the page component as props
+  };
 }
+
+function App() {
+  const [posts, setPosts] = useState([]);
+  const [showAddPost, setShowAddPost] = useState(false);
+
+  const onAdd = async (post) => {
+    const res = await fetch("http://localhost:3000/api/posts/", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(post),
+    });
+    const data = await res.json();
+    setPosts([...posts, data]);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/posts")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setPosts(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {}
+      );
+  }, []);
+
+  const router = useRouter();
+  const { t } = useTranslation("common");
+
+  return (
+    <div className="app">
+      <Header heading={t("h1")} title={t("title")} />
+      <Avatar />
+      <About />
+      <Blog posts={posts} onAdd={onAdd} showAddPost={showAddPost}/>
+      <Footer />
+    </div>
+  );
+}
+export default App;

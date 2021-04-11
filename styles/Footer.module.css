@@ -1,0 +1,21 @@
+.paragraph {
+  font-size: 1rem;
+}
+
+.paragraph {
+  margin-bottom: 0;
+}
+
+.link {
+  margin-right: 2rem;
+}
+
+.sourceCode p {
+    display: flex;
+    align-items: center;
+}
+
+.sourceCode a {
+    height: 16px;
+    margin-left: 0.5rem;
+}
