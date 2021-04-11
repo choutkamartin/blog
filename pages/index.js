@@ -50,7 +50,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("/api/posts", {
+    fetch("/api/posts/", {
       method: "GET",
     })
       .then((res) => res.json())
