@@ -9,7 +9,7 @@ import styles from "../../styles/Post.module.css";
 
 export async function getServerSideProps(context) {
   const { slug } = context.query;
-  const res = await fetch(`http://localhost:3000/api/posts/${slug}`);
+  const res = await fetch(`/api/posts/${slug}`);
   const data = await res.json();
   return {
     props: {
