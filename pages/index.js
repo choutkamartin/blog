@@ -71,7 +71,7 @@ function App() {
       <Header heading={t("h1")} title={t("title")} />
       <Avatar />
       <About />
-      <Blog posts={posts} onAdd={onAdd} showAddPost={showAddPost}/>
+      <Blog posts={posts} onAdd={onAdd} showAddPost={showAddPost} />
       <Footer />
     </div>
   );
