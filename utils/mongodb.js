@@ -1,43 +1,26 @@
+import { parse } from 'url'
 import { MongoClient } from 'mongodb'
 
-const { MONGODB_URI, MONGODB_DB } = process.env
+// Create cached connection variable
+let cachedDb = null
 
-if (!MONGODB_URI) {
-  throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
-  )
-}
-
-if (!MONGODB_DB) {
-  throw new Error(
-    'Please define the MONGODB_DB environment variable inside .env.local'
-  )
-}
-
-let cached = global.mongo
-
-if (!cached) {
-  cached = global.mongo = { conn: null, promise: null }
-}
-
+// A function for connecting to MongoDB,
+// taking a single parameter of the connection string
 export async function connectToDatabase() {
-  if (cached.conn) {
-    return cached.conn
+  // If the database connection is cached,
+  // use it instead of creating a new connection
+  if (cachedDb) {
+    return cachedDb
   }
 
-  if (!cached.promise) {
-    const opts = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+  // If no connection is cached, create a new one
+  const client = await MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 
-    cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
-      return {
-        client,
-        db: client.db(MONGODB_DB),
-      }
-    })
-  }
-  cached.conn = await cached.promise
-  return cached.conn
+  // Select the database through the connection,
+  // using the database path of the connection string
+  const db = client.db(parse(process.env.MONGODB_URI).pathname.substr(1))
+
+  // Cache the database connection and return the connection
+  cachedDb = db
+  return db
 }

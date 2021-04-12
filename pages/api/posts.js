@@ -1,7 +1,7 @@
 import { connectToDatabase } from "../../utils/mongodb";
 
 export default async (req, res) => {
-  const { db } = await connectToDatabase();
+  const db = await connectToDatabase();
   if (req.method === "GET") {
     const posts = await db
       .collection("posts")
