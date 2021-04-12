@@ -38,7 +38,7 @@ function App() {
   const [showAddPost, setShowAddPost] = useState(false);
 
   const onAdd = async (post) => {
-    const res = await fetch("/api/posts/", {
+    const res = await fetch("http://localhost:3000/api/posts/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -50,7 +50,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("/api/posts/", {
+    fetch("https://blog-sooty-six.vercel.app/api/posts/", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -58,10 +58,9 @@ function App() {
         (result) => {
           setPosts(result);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {}
+        (error) => {
+          console.log(error);
+        }
       );
   }, []);
 
