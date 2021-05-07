@@ -15,7 +15,7 @@ export const Header = ({ heading, title }) => {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>Martin Choutka</title>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <link
           rel="stylesheet"
