@@ -35,15 +35,12 @@ export const Header = ({ heading, title }) => {
         ></link>
       </Head>
       <header className={styles.language}>
-        <nav>
+        <nav className={styles.nav}>
           <Link href={path} locale={router.locale === "en" ? "cs" : "en"}>
             <a className={styles.link}>{t("change-locale")}</a>
           </Link>
           <Link href="/contact">
             <a className={styles.link}>Kontakt</a>
-          </Link>
-          <Link href="/tyto-stranky">
-            <a className={styles.link}>Tyto stránky</a>
           </Link>
           <Link href="/projects">
             <a className={styles.link}>Projekty</a>

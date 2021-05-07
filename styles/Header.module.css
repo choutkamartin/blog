@@ -1,3 +1,7 @@
+.nav {
+  display: flex;
+}
+
 .language {
   display: flex;
   align-items: center;
