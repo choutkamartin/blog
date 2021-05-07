@@ -1,27 +1,16 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
-
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Avatar } from "../components/Avatar";
 import { About } from "../components/About";
 import { Blog } from "../components/Blog";
-import { AddPost } from "../components/AddPost";
-
 import { useEffect, useState } from "react";
 
 export async function getServerSideProps({ locale }) {
-  /*const res = await fetch("http://localhost:3000/api/posts", {
-  method: "GET",
-});
-const data = await res.json();*/
   return {
     props: {
-      /*data,*/
       ...(await serverSideTranslations(locale, [
         "common",
         "footer",
@@ -29,7 +18,7 @@ const data = await res.json();*/
         "about",
         "blog",
       ])),
-    }, // will be passed to the page component as props
+    },
   };
 }
 
@@ -38,7 +27,7 @@ function App() {
   const [showAddPost, setShowAddPost] = useState(false);
 
   const onAdd = async (post) => {
-    const res = await fetch("http://localhost:3000/api/posts/", {
+    const res = await fetch(`/api/posts/`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -50,7 +39,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("https://blog-sooty-six.vercel.app/api/posts/", {
+    fetch(`/api/posts/`, {
       method: "GET",
     })
       .then((res) => res.json())

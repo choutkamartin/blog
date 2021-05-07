@@ -1,6 +1,5 @@
 import { useTranslation } from "next-i18next";
 import styles from "../styles/Blog.module.css";
-import Link from "next/link";
 import { AddPost } from "../components/AddPost";
 import { Post } from "../components/Post";
 

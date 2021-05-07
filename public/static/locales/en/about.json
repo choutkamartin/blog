@@ -1,7 +1,7 @@
 {
     "about-greetings": "Hey 👋",
     "about-introduction": "I'm Martin. A full-stack developer. I use JavaScript mainly, that's why I use Node.js, Express as a framework, MongoDB and React.",
-    "about-else": "I'm also open to using C#, SQL and more. I translate applications such as Bouncer or Bitwarden.",
-    "about-3d-engineering": "I used to do 3D models and drawings related to engineering. Check out my profile on GrabCAD.",
-    "about-contact-me": "If you wish to contact me you can do so via e-mail: email@martinchoutka.cz"
+    "about-else": "I'm also open to using C#, SQL and more. I translate applications such as <a href='https://play.google.com/store/apps/details?id=com.samruston.permission' target='_blank'>Bouncer</a> or <a href='https://bitwarden.com/' target='_blank'>Bitwarden</a>.",
+    "about-3d-engineering": "I used to do 3D models and drawings related to engineering. Check out my profile on <a href='https://grabcad.com/martin.choutka-1' target='_blank'>GrabCAD</a>.",
+    "about-contact-me": "If you wish to contact me you can do so via e-mail: <a href='mailto:email@martinchoutka.cz' target='_blank'>email@martinchoutka.cz</a>"
 }

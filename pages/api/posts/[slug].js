@@ -1,5 +1,4 @@
 import { connectToDatabase } from "../../../utils/mongodb";
-import mongoose from "mongoose";
 
 export default async (req, res) => {
   const db = await connectToDatabase();

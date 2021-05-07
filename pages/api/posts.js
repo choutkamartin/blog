@@ -17,7 +17,7 @@ export default async (req, res) => {
       slug: req.body.slug,
       textCs: req.body.textCs,
       textEn: req.body.textEn,
-      date: new Date()
+      date: new Date(),
     };
     const data = await posts.insertOne(post);
     res.json(data);

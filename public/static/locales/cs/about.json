@@ -1,7 +1,7 @@
 {
     "about-greetings": "Ahoj 👋",
     "about-introduction": "Jmenuji se Martin a jsem full-stack vývojář. Momentálně pracuji v ČSOB na pozici WCM. Programuji v JavaScriptu, využívám Node.js, Express, React či MongoDB.",
-    "about-else": "Znám ale i ostatní jazyky, ať už se jedná o C# či SQL. Ve svém volném čase občas překládám <a>Bitwarden</a> či <a>Bouncer</a>.",
-    "about-3d-engineering": "Tvořil jsem 3D modely a výkresy týkající se strojírenství. Spoustu modelů mám na <a>GrabCAD</a>.",
-    "about-contact-me": "Pokud mě chcete kontaktovat, můžete přes email: <a>email@martinchoutka.cz</a>"
+    "about-else": "Znám ale i ostatní jazyky, ať už se jedná o C# či SQL. Ve svém volném čase občas překládám <a href='https://bitwarden.com/' target='_blank'>Bitwarden</a> či <a href='https://play.google.com/store/apps/details?id=com.samruston.permission' target='_blank'>Bouncer</a>.",
+    "about-3d-engineering": "Tvořil jsem 3D modely a výkresy týkající se strojírenství. Spoustu modelů mám na <a href='https://grabcad.com/martin.choutka-1' target='_blank'>GrabCAD</a>.",
+    "about-contact-me": "Pokud mě chcete kontaktovat, můžete přes email: <a href='mailto:email@martinchoutka.cz' target='_blank'>email@martinchoutka.cz</a>"
 }

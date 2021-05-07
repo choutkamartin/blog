@@ -10,3 +10,42 @@
 .link:last-child {
   margin-right: 0;
 }
+
+.formSwitch {
+  padding-left: 2.5em;
+}
+
+.formCheck {
+  display: block;
+  padding-left: 1.5em;
+}
+
+.formCheckInput {
+  width: 1em;
+  height: 1em;
+  margin-top: .25em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0,0,0,.25);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+.formCheckInput {
+  width: 2em;
+  margin-bottom: 0;
+  background-image: url("/dot.svg");
+  background-position: left center;
+  border-radius: 2em;
+  transition: background-position 0.15s ease-in-out;
+}
+
+.formCheckInput:checked {
+  background-position: right center;
+}

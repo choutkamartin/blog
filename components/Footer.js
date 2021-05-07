@@ -18,7 +18,7 @@ export const Footer = () => {
       <div className={styles.sourceCode}>
         <p>
           Zdrojový kód k dispozici na:
-          <a href="">
+          <a href="https://github.com/choutkamartin/blog" target="_blank">
             <FaGithub size="20"/>
           </a>
         </p>
